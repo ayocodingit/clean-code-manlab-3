@@ -18,6 +18,7 @@ exclude_patterns:
 - "app/Http/Controllers/V2/PCRController.php"
 - "app/Http/Controllers/RegistrasiRujukanController.php"
 - "app/Http/Controllers/V2/EkstraksiController.php"
+- "routes/api.php"
 # Nilai C
 - "app/Http/Controllers/V2/DashboardController.php"
 - "app/Http/Controllers/V1/ReagenEkstraksiController.php"
