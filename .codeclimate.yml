@@ -3,6 +3,7 @@ exclude_patterns:
 - "public"
 - "database"
 - "app/Console"
+# Nilai F
 - "app/Http/Controllers/V1/ValidasiController.php"
 - "app/Http/Controllers/V1/VerifikasiController.php"
 - "app/Http/Controllers/V1/RegisterController.php"
@@ -11,3 +12,9 @@ exclude_patterns:
 - "app/Http/Controllers/V1/DashboardController.php"
 - "app/Http/Controllers/V1/EkstraksiController.php"
 - "app/Http/Controllers/SampleController.php"
+# nilai D
+- "app/Http/Controllers/V1/PelacakanSampelController.php"
+- "app/Http/Controllers/V2/PelacakanSampelController.php"
+- "app/Http/Controllers/V2/PCRController.php"
+- "app/Http/Controllers/RegistrasiRujukanController.php"
+- "app/Http/Controllers/V2/EkstraksiController.php"
