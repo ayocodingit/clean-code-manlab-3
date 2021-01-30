@@ -5,7 +5,6 @@ namespace App\Http\Controllers\V1;
 use App\Http\Controllers\Controller;
 use App\Models\ReagenPCR;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ReagenPCRController extends Controller
 {
@@ -63,18 +62,12 @@ class ReagenPCRController extends Controller
         ];
         $request->validate($rules);
 
-        DB::beginTransaction();
-        try {
-            $data = new ReagenPCR;
-            $data->nama = $request->get('nama');
-            $data->ct_normal = $request->get('ct_normal');
-            $data->save();
-            DB::commit();
-            return response()->json(['code' => 200, 'message' => 'success', 'result' => $data], 200);
-        } catch (\Throwable $th) {
-            DB::rollback();
-            return response()->json(['code' => 500, 'message' => 'sistem error'], 500);
-        }
+        $reagenPCR = new ReagenPCR;
+        $reagenPCR->nama = $request->get('nama');
+        $reagenPCR->ct_normal = $request->get('ct_normal');
+        $reagenPCR->save();
+
+        return response()->json(['result' => $reagenPCR]);
     }
 
     /**
@@ -83,10 +76,9 @@ class ReagenPCRController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(ReagenPCR $reagenPCR)
     {
-        $data = ReagenPCR::findOrFail($id);
-        return response()->json(['code' => 200, 'message' => 'success', 'result' => $data], 200);
+        return response()->json(['result' => $reagenPCR]);
     }
 
     /**
@@ -96,27 +88,18 @@ class ReagenPCRController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ReagenPCR $reagenPCR)
     {
-
         $rules = [
-            'nama' => 'required|unique:reagen_pcr,nama,' . $id,
+            'nama' => 'required|unique:reagen_pcr,nama,' . $reagenPCR->id.',id',
             'ct_normal' => 'required|integer',
         ];
         $request->validate($rules);
 
-        DB::beginTransaction();
-        try {
-            $data = ReagenPCR::findOrFail($id);
-            $data->nama = $request->get('nama');
-            $data->ct_normal = $request->get('ct_normal');
-            $data->save();
-            DB::commit();
-            return response()->json(['code' => 200, 'message' => 'success', 'result' => $data], 200);
-        } catch (\Throwable $th) {
-            DB::rollback();
-            return response()->json(['code' => 500, 'message' => 'sistem error'], 500);
-        }
+        $reagenPCR->nama = $request->get('nama');
+        $reagenPCR->ct_normal = $request->get('ct_normal');
+        $reagenPCR->save();
+        return response()->json(['result' => $reagenPCR]);
     }
 
     /**
@@ -125,17 +108,9 @@ class ReagenPCRController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ReagenPCR $reagenPCR)
     {
-        DB::beginTransaction();
-        try {
-            $data = ReagenPCR::findOrFail($id);
-            $data->delete();
-            DB::commit();
-            return response()->json(['code' => 200, 'message' => 'success', 'result' => []], 200);
-        } catch (\Throwable $th) {
-            DB::rollback();
-            return response()->json(['code' => 500, 'message' => 'sistem error'], 500);
-        }
+        $reagenPCR->delete();
+        return response()->json(['message' => 'DELETED']);
     }
 }
