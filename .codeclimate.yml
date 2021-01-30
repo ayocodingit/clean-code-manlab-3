@@ -8,3 +8,6 @@ exclude_patterns:
 - "app/Http/Controllers/V1/RegisterController.php"
 - "app/Http/Controllers/RegistrasiMandiri.php"
 - "app/Http/Controllers/V1/PCRController.php"
+- "app/Http/Controllers/V1/DashboardController.php"
+- "app/Http/Controllers/V1/EkstraksiController.php"
+- "app/Http/Controllers/SampleController.php"
