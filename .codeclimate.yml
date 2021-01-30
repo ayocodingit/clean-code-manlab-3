@@ -3,3 +3,8 @@ exclude_patterns:
 - "public"
 - "database"
 - "app/Console"
+- "app/Http/Controllers/V1/ValidasiController.php"
+- "app/Http/Controllers/V1/VerifikasiController.php"
+- "app/Http/Controllers/V1/RegisterController.php"
+- "app/Http/Controllers/RegistrasiMandiri.php"
+- "app/Http/Controllers/V1/PCRController.php"
