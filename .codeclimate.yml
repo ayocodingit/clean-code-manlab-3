@@ -12,9 +12,15 @@ exclude_patterns:
 - "app/Http/Controllers/V1/DashboardController.php"
 - "app/Http/Controllers/V1/EkstraksiController.php"
 - "app/Http/Controllers/SampleController.php"
-# nilai D
+# Nilai D
 - "app/Http/Controllers/V1/PelacakanSampelController.php"
 - "app/Http/Controllers/V2/PelacakanSampelController.php"
 - "app/Http/Controllers/V2/PCRController.php"
 - "app/Http/Controllers/RegistrasiRujukanController.php"
 - "app/Http/Controllers/V2/EkstraksiController.php"
+# Nilai C
+- "app/Http/Controllers/V2/DashboardController.php"
+- "app/Http/Controllers/V1/ReagenEkstraksiController.php"
+- "app/Http/Controllers/V1/TesMasifController.php"
+- "app/Imports/RegisterRujukanImport.php"
+- "app/Imports/HasilPemeriksaanImport.php"
